@@ -2,10 +2,10 @@
 import Head from 'next/head';
 import localFont from "next/font/local";
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react'; // Import useEffect
+import { useState, useEffect } from 'react';
 import './globals.css';
 import '../../i18n';
-import { metadata } from './metadata';
+import { metadata } from './metadata'; // Assurez-vous d'importer les métadonnées
 import Navbar from './components/Navbar/Navbar';
 
 const geistSans = localFont({
@@ -22,17 +22,15 @@ const geistMono = localFont({
 
 export default function RootLayout({ children }) {
   const { i18n } = useTranslation();
-  const [currentLang, setCurrentLang] = useState('ar'); // Langue par défaut arabe
+  const [currentLang, setCurrentLang] = useState('ar');
 
-  // Utilisation de useEffect pour détecter la langue du téléphone et appliquer la langue correspondante
   useEffect(() => {
-    const deviceLanguage = navigator.language || navigator.languages[0]; // Langue du navigateur ou téléphone
-    const lang = deviceLanguage.startsWith('fr') ? 'fr' : 'ar'; // Si le téléphone est en français, sinon arabe
-    i18n.changeLanguage(lang); // Changer la langue dans i18next
-    setCurrentLang(lang); // Mettre à jour l'état pour la langue courante
+    const deviceLanguage = navigator.language || navigator.languages[0];
+    const lang = deviceLanguage.startsWith('fr') ? 'fr' : 'ar';
+    i18n.changeLanguage(lang);
+    setCurrentLang(lang);
   }, [i18n]);
 
-  // Fonction pour changer la langue via le bouton flottant
   const toggleLanguage = () => {
     const newLang = currentLang === 'fr' ? 'ar' : 'fr';
     i18n.changeLanguage(newLang);
@@ -41,14 +39,13 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang={currentLang === 'fr' ? 'fr' : 'ar'}>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        {/* Ajouter d'autres métadonnées si nécessaire */}
-      </Head>
+      <head>
+        <title>El zouhour Garde Malade</title>
+        <meta name="description" content="Garde malade professionnel à domicile" />
+        <link rel="icon" href="/favicon.png" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div>
-          {/* Ajouter un bouton flottant pour changer de langue */}
           <button className="floatingButton" onClick={toggleLanguage}>
             {currentLang === 'fr' ? 'AR' : 'FR'}
           </button>
