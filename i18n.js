@@ -69,7 +69,14 @@ const resources = {
       changes_content: "Nous nous réservons le droit de modifier cette politique à tout moment. Les modifications seront publiées sur cette page.",
       contact_us: "Nous contacter",
       contact_us_content: "Pour toute question concernant cette politique de confidentialité, vous pouvez nous contacter à contact@example.com."
-
+      , name: "Nom",
+      first_name: "Prénom",
+      phone_number: "Numéro de Téléphone",
+      subject: "Objet",
+      submit: "Envoyer",
+      form_submit_success: "Votre message a été envoyé avec succès.",
+      our_office: "Notre siège se situe à Bab Ezzouar, Quartier d'affaire.",
+      field_required: "Ce champ est requis."
     }
   },
   ar: {
@@ -138,7 +145,16 @@ const resources = {
       changes: "التغييرات على السياسة",
       changes_content: "نحتفظ بالحق في تعديل هذه السياسة في أي وقت. سيتم نشر التغييرات على هذه الصفحة.",
       contact_us: "اتصل بنا",
-      contact_us_content: "لأي استفسار حول سياسة الخصوصية هذه، يمكنك التواصل معنا عبر contact@example.com."
+      contact_us_content: "لأي استفسار حول سياسة الخصوصية هذه، يمكنك التواصل معنا عبر contact@example.com.",
+      contact_us: "اتصل بنا",
+      name: "الاسم",
+      first_name: "اللقب",
+      phone_number: "رقم الهاتف",
+      subject: "الموضوع",
+      submit: "إرسال",
+      form_submit_success: "تم إرسال رسالتك بنجاح.",
+      our_office: "مقرنا يقع في باب الزوار، الحي التجاري.",
+      field_required: "هذا الحقل مطلوب."
 
     }
   }

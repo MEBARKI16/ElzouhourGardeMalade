@@ -29,7 +29,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/contact">
+                        <Link href="/Contact">
                             {t("contact")}
                         </Link>
                     </li>
