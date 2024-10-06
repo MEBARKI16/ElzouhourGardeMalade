@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'; // Import useEffect
 import './globals.css';
 import '../../i18n';
 import { metadata } from './metadata';
+import Navbar from './components/Navbar/Navbar';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
             {currentLang === 'fr' ? 'AR' : 'FR'}
           </button>
         </div>
+        <Navbar />
         {children}
       </body>
     </html>

@@ -42,6 +42,10 @@ const resources = {
       success_update: "Service mis à jour",
       call_button: "Appeler",
       close_button: "Fermer",
+      qui_sommes_nous: "Qui sommes-nous",
+      contact: "Contact",
+      politique_confidentialite: "Politique de confidentialité",
+      user_account: "Mon Compte"
     }
   },
   ar: {
@@ -84,6 +88,10 @@ const resources = {
       success_update: "تم تحديث الخدمة",
       call_button: "اتصل",
       close_button: "إغلاق",
+      qui_sommes_nous: "من نحن",
+      contact: "اتصل بنا",
+      politique_confidentialite: "سياسة الخصوصية",
+      user_account: "حسابي"
     }
   }
 };
