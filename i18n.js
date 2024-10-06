@@ -76,7 +76,15 @@ const resources = {
       submit: "Envoyer",
       form_submit_success: "Votre message a été envoyé avec succès.",
       our_office: "Notre siège se situe à Bab Ezzouar, Quartier d'affaire.",
-      field_required: "Ce champ est requis."
+      field_required: "Ce champ est requis.",
+      years_old: "ans",
+      years_experience: "années d'expérience",
+      available_day: "Disponible de jour",
+      available_night: "Disponible de nuit",
+      available_day_night: "Disponible de jour et de nuit",
+      gender_male: "Homme",
+      gender_female: "Femme",
+      gender_label: "Sexe",
     }
   },
   ar: {
@@ -154,8 +162,16 @@ const resources = {
       submit: "إرسال",
       form_submit_success: "تم إرسال رسالتك بنجاح.",
       our_office: "مقرنا يقع في باب الزوار، الحي التجاري.",
-      field_required: "هذا الحقل مطلوب."
-
+      field_required: "هذا الحقل مطلوب.",
+      years_old: "سنة",
+      years_experience: "سنوات خبرة",
+      available_day: "متاح خلال النهار",
+      available_night: "متاح خلال الليل",
+      available_day_night: "متاح خلال النهار والليل",
+      DetailDispo: "تفاصيل التوفر",
+      gender_male: "ذكر",
+      gender_female: "أنثى",
+      gender_label: "الجنس",
     }
   }
 };
