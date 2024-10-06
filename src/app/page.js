@@ -12,8 +12,8 @@ const HomeScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedWilaya, setSelectedWilaya] = useState("");
   const [priceFilter, setPriceFilter] = useState(10000);
-  const { t, i18n } = useTranslation(); // Pour récupérer la langue actuelle
-
+  const [filters, setFilters] = useState({ homme: true, femme: true, jour: true, nuit: true });
+  const { t, i18n } = useTranslation(); 
   const offers = [
     {
       id: "1",
@@ -186,104 +186,64 @@ const HomeScreen = () => {
       phone: "+213555123789",
     },
   ];
+ // Filter Logic
+ const filteredOffers = offers.filter((offer) => {
+  const matchesWilaya = selectedWilaya === "" || offer.sector === selectedWilaya;
+  const matchesPrice = offer.price <= priceFilter;
+  const matchesGender = (filters.homme && offer.sexe === "homme") || (filters.femme && offer.sexe === "femme");
+  const matchesAvailability = (filters.jour && offer.jour) || (filters.nuit && offer.nuit);
+  return matchesWilaya && matchesPrice && matchesGender && matchesAvailability;
+});
 
-  const filteredOffers = offers.filter((offer) => {
-    const matchesWilaya = selectedWilaya === "" || offer.sector === selectedWilaya;
-    const matchesPrice = offer.price <= priceFilter;
-    return matchesWilaya && matchesPrice;
-  });
+const openModal = (offer) => {
+  setSelectedOffer(offer);
+  setModalVisible(true);
+};
 
-  const openModal = (offer) => {
-    setSelectedOffer(offer);
-    setModalVisible(true);
-  };
+const closeModal = () => {
+  setModalVisible(false);
+};
 
-  const closeModal = () => {
-    setModalVisible(false);
-  };
+return (
+  <div className={styles.container}>
+    <FilterComponent
+      selectedWilaya={selectedWilaya}
+      setSelectedWilaya={setSelectedWilaya}
+      priceFilter={priceFilter}
+      setPriceFilter={setPriceFilter}
+      wilayas={wilayas}
+      filters={filters}
+      setFilters={setFilters}
+    />
 
-  return (
-    <div className={styles.container}>
-      <FilterComponent
-        selectedWilaya={selectedWilaya}
-        setSelectedWilaya={setSelectedWilaya}
-        priceFilter={priceFilter}
-        setPriceFilter={setPriceFilter}
-        wilayas={wilayas}
-      />
+    {filteredOffers.length === 0 ? (
+      <p className={styles.noOffersText}>{t("no_offers_found")}</p>
+    ) : (
+      <div className={styles.offerList}>
+        {filteredOffers.map((item) => (
+          <OfferCard key={item.id} offer={item} onClick={() => openModal(item)} />
+        ))}
+      </div>
+    )}
 
-      {filteredOffers.length === 0 ? (
-        <p className={styles.noOffersText}>{t("no_offers_found")}</p>
-      ) : (
-        <div className={styles.offerList}>
-          {filteredOffers.map((item) => (
-            <OfferCard key={item.id} offer={item} onClick={() => openModal(item)} />
-          ))}
-        </div>
-      )}
-
-      {modalVisible && selectedOffer && (
-        <div className={styles.modalContainer}>
-          <div className={styles.modalContent}>
-            <Image
-              src={selectedOffer.image}
-              alt={selectedOffer.title}
-              width={300}
-              height={200}
-              className={styles.modalImage}
-            />
-            <div
-              className={`${styles.modalFields} ${i18n.language === "ar" ? styles.rtl : styles.ltr
-                }`}
-            >
-              <h3>{selectedOffer.title}</h3>
-              <p>
-                <strong>{t("name")}:</strong> {selectedOffer.name}
-              </p>
-              <p>
-                <strong>{t("first_name")}:</strong> {selectedOffer.firstName}
-              </p>
-              <p>
-                <strong>{t("gender_label")}:</strong> {selectedOffer.sexe === "homme" ? t("gender_male") : t("gender_female")}
-              </p>
-              <p>
-                <strong>{t("age")}:</strong> {selectedOffer.age} {t('years_old')}
-              </p>
-              <p>
-                <strong>{t("experience")}:</strong> {selectedOffer.anneeExperience} {t('years_experience')}
-              </p>
-              <p>
-                <strong>{t("description")}:</strong> {selectedOffer.description}
-              </p>
-              <p>
-                <strong>{t("price")}:</strong> {selectedOffer.price} DA/jour
-              </p>
-              <p>
-                <strong>{t("sector")}:</strong> {selectedOffer.sector}
-              </p>
-              <p>
-                <strong>{t("availability")}:</strong>{" "}
-                {selectedOffer.jour && selectedOffer.nuit
-                  ? t("available_day_night")
-                  : selectedOffer.jour
-                    ? t("available_day")
-                    : t("available_night")}
-              </p>
-              <p>
-                <strong>{t("DetailDispo")}:</strong> {selectedOffer.DetailDispo}
-              </p>
-            </div>
-            <button className={styles.callButton} onClick={() => window.open(`tel:${selectedOffer.phone}`)}>
-              {t('call_button')} {/* Traduction du bouton "Appeler" */}
-            </button>
-            <button className={styles.closeButton} onClick={closeModal}>
-              {t('close_button')} {/* Traduction du bouton "Fermer" */}
-            </button>
+    {modalVisible && selectedOffer && (
+      <div className={styles.modalContainer}>
+        <div className={styles.modalContent}>
+          <Image src={selectedOffer.image} alt={selectedOffer.title} width={300} height={200} className={styles.modalImage} />
+          <div className={`${styles.modalFields} ${i18n.language === "ar" ? styles.rtl : styles.ltr}`}>
+            <h3>{selectedOffer.title}</h3>
+            <p><strong>{t("name")}:</strong> {selectedOffer.name}</p>
+            <p><strong>{t("gender_label")}:</strong> {selectedOffer.sexe === "homme" ? t("gender_male") : t("gender_female")}</p>
+            <p><strong>{t("availability")}:</strong> {selectedOffer.jour && selectedOffer.nuit ? t("available_day_night") : selectedOffer.jour ? t("available_day") : t("available_night")}</p>
+            <p><strong>{t("price")}:</strong> {selectedOffer.price} DA/jour</p>
           </div>
+          <button className={styles.callButton} onClick={() => window.open(`tel:${selectedOffer.phone}`)}>{t('call_button')}</button>
+          <button className={styles.closeButton} onClick={closeModal}>{t('close_button')}</button>
         </div>
-      )}
-    </div>
-  );
+      </div>
+    )}
+  </div>
+);
 };
 
 export default HomeScreen;

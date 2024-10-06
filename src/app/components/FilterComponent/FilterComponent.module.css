@@ -111,3 +111,62 @@
   background-color: #e0523d;
   box-shadow: 0 4px 10px rgba(255, 99, 71, 0.3);
 }
+/* Container for the checkboxes */
+.checkboxContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* Center the labels */
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+/* Style for the labels */
+.checkboxContainer label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* Custom checkbox toggle style */
+.checkboxContainer input[type="checkbox"] {
+  appearance: none; /* Remove default checkbox */
+  width: 40px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Circle inside the toggle button */
+.checkboxContainer input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 1px;
+  left: 2px;
+  transition: transform 0.3s ease;
+}
+
+/* When checkbox is checked, move the circle and change background */
+.checkboxContainer input[type="checkbox"]:checked {
+  background-color: #ff6347;
+}
+
+.checkboxContainer input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+/* Style for making the entire label a clickable area */
+.checkboxContainer label {
+  cursor: pointer;
+}
