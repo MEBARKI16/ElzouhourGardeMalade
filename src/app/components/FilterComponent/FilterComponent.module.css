@@ -134,8 +134,8 @@
 /* Custom checkbox toggle style */
 .checkboxContainer input[type="checkbox"] {
   appearance: none; /* Remove default checkbox */
-  width: 40px;
-  height: 20px;
+  width: 30px;
+  height: 15px;
   background-color: #ddd;
   border-radius: 50px;
   position: relative;
