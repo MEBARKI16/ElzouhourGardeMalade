@@ -45,7 +45,16 @@ const resources = {
       qui_sommes_nous: "Qui sommes-nous",
       contact: "Contact",
       politique_confidentialite: "Politique de confidentialité",
-      user_account: "Mon Compte"
+      user_account: "Mon Compte",
+      who_we_are: "Qui sommes-nous ?",
+      who_we_are_description: "Nous sommes une entreprise spécialisée dans l'offre d'emploi aux freelances garde-malade. Nous travaillons en partenariat avec plusieurs cliniques de renom afin de vous offrir les meilleures opportunités de travail dans le domaine des soins à domicile. Nos valeurs sont centrées sur le respect, la bienveillance, et la confiance.",
+      our_values: "Nos valeurs",
+      values_description: "Nous croyons en la bienveillance, l'engagement, et la confiance mutuelle. Nous veillons à ce que chaque garde-malade puisse évoluer dans un environnement professionnel, respectueux, et épanouissant.",
+      our_partnerships: "Nos partenariats",
+      partnerships_description: "Nous collaborons avec plusieurs cliniques et hôpitaux de grande renommée. Ces partenariats nous permettent d'offrir des missions de soins à domicile fiables et bien rémunérées.",
+      join_us: "Rejoignez-nous",
+      join_us_description: "Vous êtes un garde-malade qualifié et passionné ? Rejoignez notre réseau de freelances dès aujourd'hui et accédez à des opportunités uniques dans le domaine des soins à domicile.",
+  
     }
   },
   ar: {
@@ -91,7 +100,16 @@ const resources = {
       qui_sommes_nous: "من نحن",
       contact: "اتصل بنا",
       politique_confidentialite: "سياسة الخصوصية",
-      user_account: "حسابي"
+      user_account: "حسابي",
+      who_we_are: "من نحن؟",
+      who_we_are_description: "نحن شركة متخصصة في تقديم فرص العمل للممرضين المستقلين. نحن نعمل بالشراكة مع العديد من العيادات الشهيرة لتقديم أفضل فرص العمل في مجال الرعاية المنزلية. قيمنا تركز على الاحترام، والاهتمام، والثقة.",
+      our_values: "قيمنا",
+      values_description: "نؤمن بالاهتمام، الالتزام، والثقة المتبادلة. نحن نضمن أن كل ممرض يعمل في بيئة مهنية، محترمة، وملهمة.",
+      our_partnerships: "شراكاتنا",
+      partnerships_description: "نحن نتعاون مع العديد من العيادات والمستشفيات ذات السمعة الكبيرة. هذه الشراكات تتيح لنا توفير فرص رعاية منزلية موثوقة ومربحة.",
+      join_us: "انضم إلينا",
+      join_us_description: "هل أنت ممرض مؤهل ومتحمس؟ انضم إلى شبكتنا من المستقلين اليوم وكن على اتصال بفرص فريدة في مجال الرعاية المنزلية.",
+
     }
   }
 };

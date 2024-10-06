@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import './globals.css';
 import '../../i18n';
-import { metadata } from './metadata'; // Assurez-vous d'importer les métadonnées
 import Navbar from './components/Navbar/Navbar';
 
 const geistSans = localFont({

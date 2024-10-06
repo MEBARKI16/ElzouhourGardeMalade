@@ -24,7 +24,7 @@ const Navbar = () => {
             <div className={`${styles.menu} ${isMobileMenuOpen ? styles.open : ""}`}>
                 <ul>
                     <li>
-                        <Link href="/qui-sommes-nous">
+                        <Link href="/QuiSommesNous">
                             {t("qui_sommes_nous")}
                         </Link>
                     </li>
