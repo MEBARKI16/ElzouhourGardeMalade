@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import OfferCard from "./components/OfferCard/OfferCard";
 import styles from "./Home.module.css";
 import wilayas from "../../data/wilaya";
+import FilterComponent from "./components/FilterComponent/FilterComponent";
 
 const HomeScreen = () => {
   const [selectedOffer, setSelectedOffer] = useState(null);
@@ -225,46 +226,13 @@ const HomeScreen = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.filtersContainer}>
-        <div className={styles.pickerContainer}>
-          <select
-            value={selectedWilaya}
-            onChange={(e) => setSelectedWilaya(e.target.value)}
-            className={styles.picker}
-          >
-            <option value="">{t("select_wilaya")}</option>
-            {wilayas.map((wilaya) => (
-              <option key={wilaya.value} value={wilaya.value}>
-                {wilaya.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className={styles.sliderContainer}>
-          <label className={styles.sliderLabel}>
-            {t("price_maximum")} : {priceFilter} DA
-          </label>
-          <input
-            type="range"
-            min="2000"
-            max="10000"
-            step="500"
-            value={priceFilter}
-            onChange={(e) => setPriceFilter(e.target.value)}
-            className={styles.slider}
-          />
-        </div>
-
-        <button
-          className={styles.clearButton}
-          onClick={() => {
-            setSelectedWilaya("");
-            setPriceFilter(10000);
-          }}
-        >
-          {t("clear_filters")}
-        </button>
-      </div>
+     <FilterComponent
+        selectedWilaya={selectedWilaya}
+        setSelectedWilaya={setSelectedWilaya}
+        priceFilter={priceFilter}
+        setPriceFilter={setPriceFilter}
+        wilayas={wilayas}
+      />
 
       {filteredOffers.length === 0 ? (
         <p className={styles.noOffersText}>{t("no_offers_found")}</p>
@@ -307,14 +275,11 @@ const HomeScreen = () => {
                 <strong>{t("sector")}:</strong> {selectedOffer.sector}
               </p>
             </div>
-            <button
-              className={styles.callButton}
-              onClick={() => window.open(`tel:${selectedOffer.phone}`)}
-            >
-              {t("call")}
+            <button className={styles.callButton} onClick={() => window.open(`tel:${selectedOffer.phone}`)}>
+              {t('call_button')} {/* Traduction du bouton "Appeler" */}
             </button>
             <button className={styles.closeButton} onClick={closeModal}>
-              {t("close")}
+              {t('close_button')} {/* Traduction du bouton "Fermer" */}
             </button>
           </div>
         </div>

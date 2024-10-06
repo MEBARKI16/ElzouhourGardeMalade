@@ -1,0 +1,113 @@
+/* Container général pour les filtres */
+.filtersContainer {
+  background-color: #f7f9fc;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: all 0.3s ease;
+}
+
+.pickerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style moderne pour le select */
+.picker {
+  height: 45px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  width: 100%;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.picker:focus {
+  border-color: #ff6347;
+  box-shadow: 0 0 8px rgba(255, 99, 71, 0.3);
+}
+
+/* Conteneur pour le slider */
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sliderLabel {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Style du slider */
+.slider {
+  width: 100%;
+  appearance: none;
+  background: #ddd;
+  height: 8px;
+  border-radius: 10px;
+  outline: none;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ff6347;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ff6347;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Style moderne pour le bouton "Effacer les filtres" */
+.clearButton {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+  width: 200px;
+  text-align: center;
+}
+
+.clearButton:hover {
+  background-color: #e0523d;
+  box-shadow: 0 4px 10px rgba(255, 99, 71, 0.3);
+}

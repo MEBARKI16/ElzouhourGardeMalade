@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import Head from 'next/head';
 import localFont from "next/font/local";
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Import useEffect
 import './globals.css';
 import '../../i18n';
 import { metadata } from './metadata';
@@ -21,8 +21,17 @@ const geistMono = localFont({
 
 export default function RootLayout({ children }) {
   const { i18n } = useTranslation();
-  const [currentLang, setCurrentLang] = useState('fr');
+  const [currentLang, setCurrentLang] = useState('ar'); // Langue par défaut arabe
 
+  // Utilisation de useEffect pour détecter la langue du téléphone et appliquer la langue correspondante
+  useEffect(() => {
+    const deviceLanguage = navigator.language || navigator.languages[0]; // Langue du navigateur ou téléphone
+    const lang = deviceLanguage.startsWith('fr') ? 'fr' : 'ar'; // Si le téléphone est en français, sinon arabe
+    i18n.changeLanguage(lang); // Changer la langue dans i18next
+    setCurrentLang(lang); // Mettre à jour l'état pour la langue courante
+  }, [i18n]);
+
+  // Fonction pour changer la langue via le bouton flottant
   const toggleLanguage = () => {
     const newLang = currentLang === 'fr' ? 'ar' : 'fr';
     i18n.changeLanguage(newLang);
@@ -34,11 +43,11 @@ export default function RootLayout({ children }) {
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-        {/* Vous pouvez ajouter d'autres métadonnées ici */}
+        {/* Ajouter d'autres métadonnées si nécessaire */}
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div>
-          {/* Ajouter un bouton flottant pour basculer la langue */}
+          {/* Ajouter un bouton flottant pour changer de langue */}
           <button className="floatingButton" onClick={toggleLanguage}>
             {currentLang === 'fr' ? 'AR' : 'FR'}
           </button>

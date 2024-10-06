@@ -40,6 +40,8 @@ const resources = {
       error_upload_image: "Erreur lors du téléchargement de l'image.",
       success_publish: "Service publié",
       success_update: "Service mis à jour",
+      call_button: "Appeler",
+      close_button: "Fermer",
     }
   },
   ar: {
@@ -49,7 +51,7 @@ const resources = {
       select_wilaya: "اختر ولاية",
       price_maximum: "السعر الأقصى",
       clear_filters: "إزالة الفلاتر",
-      no_offers_found: "لم يتم العثور على حارس مريض", 
+      no_offers_found: "لم يتم العثور على حارس مريض",
       login: "تسجيل الدخول",
       email: "البريد الإلكتروني",
       password: "كلمة المرور",
@@ -80,18 +82,20 @@ const resources = {
       error_upload_image: "حدث خطأ أثناء تحميل الصورة.",
       success_publish: "تم نشر الخدمة",
       success_update: "تم تحديث الخدمة",
+      call_button: "اتصل",
+      close_button: "إغلاق",
     }
   }
 };
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: 'ar', 
-  fallbackLng: 'ar', 
-  compatibilityJSON: 'v3',
-  interpolation: {
-    escapeValue: false, 
-  }
-});
+i18n.use(initReactI18next)
+  .init({
+    resources,
+    lng: 'ar', // Définit la langue par défaut à 'ar' (arabe)
+    fallbackLng: 'fr', // Si la langue arabe n'est pas disponible, revenir au français
+    interpolation: {
+      escapeValue: false // React se charge déjà de la sécurité contre les injections XSS
+    }
+  });
 
 export default i18n;
