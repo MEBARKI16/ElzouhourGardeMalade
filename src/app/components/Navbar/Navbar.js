@@ -34,7 +34,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/politique-confidentialite">
+                        <Link href="/PolitiqueConfidentialite">
                             {t("politique_confidentialite")}
                         </Link>
                     </li>

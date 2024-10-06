@@ -54,7 +54,22 @@ const resources = {
       partnerships_description: "Nous collaborons avec plusieurs cliniques et hôpitaux de grande renommée. Ces partenariats nous permettent d'offrir des missions de soins à domicile fiables et bien rémunérées.",
       join_us: "Rejoignez-nous",
       join_us_description: "Vous êtes un garde-malade qualifié et passionné ? Rejoignez notre réseau de freelances dès aujourd'hui et accédez à des opportunités uniques dans le domaine des soins à domicile.",
-  
+      privacy_policy_title: "Politique de Confidentialité",
+      personal_data: "Données personnelles",
+      personal_data_content: "Nous collectons vos données personnelles lors de votre utilisation de nos services afin d'améliorer votre expérience.",
+      data_usage: "Utilisation des données",
+      data_usage_content: "Vos données sont utilisées pour personnaliser votre expérience, fournir un support, et améliorer nos services.",
+      data_sharing: "Partage des données",
+      data_sharing_content: "Vos informations ne sont jamais vendues, mais peuvent être partagées avec nos partenaires pour vous offrir un meilleur service.",
+      user_rights: "Vos droits",
+      user_rights_content: "Vous avez le droit d'accéder, de rectifier et de supprimer vos données à tout moment.",
+      cookies: "Cookies",
+      cookies_content: "Nous utilisons des cookies pour améliorer la navigation sur notre site. Vous pouvez gérer vos préférences de cookies dans les paramètres de votre navigateur.",
+      changes: "Modifications de la politique",
+      changes_content: "Nous nous réservons le droit de modifier cette politique à tout moment. Les modifications seront publiées sur cette page.",
+      contact_us: "Nous contacter",
+      contact_us_content: "Pour toute question concernant cette politique de confidentialité, vous pouvez nous contacter à contact@example.com."
+
     }
   },
   ar: {
@@ -109,6 +124,21 @@ const resources = {
       partnerships_description: "نحن نتعاون مع العديد من العيادات والمستشفيات ذات السمعة الكبيرة. هذه الشراكات تتيح لنا توفير فرص رعاية منزلية موثوقة ومربحة.",
       join_us: "انضم إلينا",
       join_us_description: "هل أنت ممرض مؤهل ومتحمس؟ انضم إلى شبكتنا من المستقلين اليوم وكن على اتصال بفرص فريدة في مجال الرعاية المنزلية.",
+      privacy_policy_title: "سياسة الخصوصية",
+      personal_data: "البيانات الشخصية",
+      personal_data_content: "نجمع بياناتك الشخصية عند استخدام خدماتنا لتحسين تجربتك.",
+      data_usage: "استخدام البيانات",
+      data_usage_content: "يتم استخدام بياناتك لتخصيص تجربتك، وتقديم الدعم، وتحسين خدماتنا.",
+      data_sharing: "مشاركة البيانات",
+      data_sharing_content: "لا يتم بيع معلوماتك، ولكن يمكن مشاركتها مع شركائنا لتحسين الخدمة المقدمة لك.",
+      user_rights: "حقوق المستخدم",
+      user_rights_content: "لديك الحق في الوصول إلى بياناتك، تصحيحها، وحذفها في أي وقت.",
+      cookies: "الكوكيز",
+      cookies_content: "نستخدم ملفات تعريف الارتباط لتحسين التنقل على موقعنا. يمكنك إدارة تفضيلات الكوكيز في إعدادات المتصفح الخاص بك.",
+      changes: "التغييرات على السياسة",
+      changes_content: "نحتفظ بالحق في تعديل هذه السياسة في أي وقت. سيتم نشر التغييرات على هذه الصفحة.",
+      contact_us: "اتصل بنا",
+      contact_us_content: "لأي استفسار حول سياسة الخصوصية هذه، يمكنك التواصل معنا عبر contact@example.com."
 
     }
   }
