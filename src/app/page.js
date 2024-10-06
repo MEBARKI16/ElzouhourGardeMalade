@@ -1,101 +1,149 @@
-import Image from "next/image";
+"use client"
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
+import styles from './Home.module.css';
+import wilayas from '../../data/wilaya';
 
-export default function Home() {
+const HomeScreen = () => {
+  const [selectedOffer, setSelectedOffer] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedWilaya, setSelectedWilaya] = useState('');
+  const [priceFilter, setPriceFilter] = useState(10000);
+  const { t } = useTranslation();
+
+  const offers = [
+    {
+      id: '1',
+      name: 'Marie Dupont',
+      firstName: 'Marie',
+      title: 'Garde malade pour personnes âgées',
+      description: 'Disponible 24/7 avec une longue expérience.',
+      price: 5000,
+      sector: 'Alger',
+      image: '/test2.jpg',
+      phone: '+213555123456',
+    },
+    {
+      id: '2',
+      name: 'Jean Martin',
+      firstName: 'Jean',
+      title: 'Garde malade pour personnes handicapées',
+      description: 'Service de nuit et jour avec spécialité dans les soins de handicap.',
+      price: 4500,
+      sector: 'Oran',
+      image: '/test.webp',
+      phone: '+213555654321',
+    },
+  ];
+
+  const filteredOffers = offers.filter((offer) => {
+    const matchesWilaya = selectedWilaya === '' || offer.sector === selectedWilaya;
+    const matchesPrice = offer.price <= priceFilter;
+    return matchesWilaya && matchesPrice;
+  });
+
+  const openModal = (offer) => {
+    setSelectedOffer(offer);
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className={styles.container}>
+      <div className={styles.filtersContainer}>
+        <div className={styles.pickerContainer}>
+          <select
+            value={selectedWilaya}
+            onChange={(e) => setSelectedWilaya(e.target.value)}
+            className={styles.picker}
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <option value="">{t('select_wilaya')}</option>
+            {wilayas.map((wilaya) => (
+              <option key={wilaya.value} value={wilaya.value}>
+                {wilaya.label}
+              </option>
+            ))}
+          </select>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className={styles.sliderContainer}>
+          <label className={styles.sliderLabel}>
+            {t('price_maximum')} : {priceFilter} DA
+          </label>
+          <input
+            type="range"
+            min="2000"
+            max="10000"
+            step="500"
+            value={priceFilter}
+            onChange={(e) => setPriceFilter(e.target.value)}
+            className={styles.slider}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        </div>
+
+        <button
+          className={styles.clearButton}
+          onClick={() => {
+            setSelectedWilaya('');
+            setPriceFilter(10000);
+          }}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          {t('clear_filters')}
+        </button>
+      </div>
+
+      {filteredOffers.length === 0 ? (
+        <p className={styles.noOffersText}>{t('no_offers_found')}</p>
+      ) : (
+        <div className={styles.offerList}>
+          {filteredOffers.map((item) => (
+            <div key={item.id} className={styles.offerCard} onClick={() => openModal(item)}>
+              <Image src={item.image} alt={item.title} width={100} height={100} />
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <p>{item.price} DA/jour</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {modalVisible && selectedOffer && (
+        <div className={styles.modalContainer}>
+          <div className={styles.modalContent}>
+            <Image src={selectedOffer.image} alt={selectedOffer.title} width={300} height={200} />
+            <h3>{selectedOffer.title}</h3>
+            <p>
+              <strong>Nom:</strong> {selectedOffer.name}
+            </p>
+            <p>
+              <strong>Prénom:</strong> {selectedOffer.firstName}
+            </p>
+            <p>
+              <strong>Description:</strong> {selectedOffer.description}
+            </p>
+            <p>
+              <strong>Prix:</strong> {selectedOffer.price} DA/jour
+            </p>
+            <p>
+              <strong>Secteur:</strong> {selectedOffer.sector}
+            </p>
+            <button
+              className={styles.callButton}
+              onClick={() => window.open(`tel:${selectedOffer.phone}`)}
+            >
+              Appeler
+            </button>
+            <button className={styles.closeButton} onClick={closeModal}>
+              Fermer
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default HomeScreen;

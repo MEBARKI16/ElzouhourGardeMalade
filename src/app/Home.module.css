@@ -1,0 +1,133 @@
+/* Style global de la page */
+.container {
+    padding: 20px;
+  }
+  
+  .filtersContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .pickerContainer,
+  .sliderContainer {
+    margin-bottom: 15px;
+  }
+  
+  .picker {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+  }
+  
+  .slider {
+    width: 100%;
+  }
+  
+  .sliderLabel {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .clearButton {
+    background-color: #ff6347;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+  }
+  
+  .noOffersText {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6347;
+    margin-top: 20px;
+  }
+  
+  /* Style des offres */
+  .offerList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .offerCard {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .offerCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  .offerCard img {
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .offerCard h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .offerCard p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Modal Styles */
+  .modalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  .callButton,
+  .closeButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .callButton {
+    background-color: green;
+    margin-right: 10px;
+  }
+  
+  .closeButton {
+    background-color: red;
+  }
+  
