@@ -13,7 +13,7 @@ const HomeScreen = () => {
   const [selectedWilaya, setSelectedWilaya] = useState("");
   const [priceFilter, setPriceFilter] = useState(10000);
   const [filters, setFilters] = useState({ homme: true, femme: true, jour: true, nuit: true });
-  const { t, i18n } = useTranslation(); 
+  const { t, i18n } = useTranslation();
   const offers = [
     {
       id: "1",
@@ -46,7 +46,7 @@ const HomeScreen = () => {
       description: "Spécialisée dans la garde d'enfants malades, expérience avec les enfants en bas âge.",
       price: 4500,
       sector: "Oran",
-      image: "/test.webp",
+      image: "/t2.jpg",
       phone: "+213555654321",
     },
     {
@@ -186,47 +186,47 @@ const HomeScreen = () => {
       phone: "+213555123789",
     },
   ];
- // Filter Logic
- const filteredOffers = offers.filter((offer) => {
-  const matchesWilaya = selectedWilaya === "" || offer.sector === selectedWilaya;
-  const matchesPrice = offer.price <= priceFilter;
-  const matchesGender = (filters.homme && offer.sexe === "homme") || (filters.femme && offer.sexe === "femme");
-  const matchesAvailability = (filters.jour && offer.jour) || (filters.nuit && offer.nuit);
-  return matchesWilaya && matchesPrice && matchesGender && matchesAvailability;
-});
+  // Filter Logic
+  const filteredOffers = offers.filter((offer) => {
+    const matchesWilaya = selectedWilaya === "" || offer.sector === selectedWilaya;
+    const matchesPrice = offer.price <= priceFilter;
+    const matchesGender = (filters.homme && offer.sexe === "homme") || (filters.femme && offer.sexe === "femme");
+    const matchesAvailability = (filters.jour && offer.jour) || (filters.nuit && offer.nuit);
+    return matchesWilaya && matchesPrice && matchesGender && matchesAvailability;
+  });
 
-const openModal = (offer) => {
-  setSelectedOffer(offer);
-  setModalVisible(true);
-};
+  const openModal = (offer) => {
+    setSelectedOffer(offer);
+    setModalVisible(true);
+  };
 
-const closeModal = () => {
-  setModalVisible(false);
-};
+  const closeModal = () => {
+    setModalVisible(false);
+  };
 
-return (
-  <div className={styles.container}>
-    <FilterComponent
-      selectedWilaya={selectedWilaya}
-      setSelectedWilaya={setSelectedWilaya}
-      priceFilter={priceFilter}
-      setPriceFilter={setPriceFilter}
-      wilayas={wilayas}
-      filters={filters}
-      setFilters={setFilters}
-    />
+  return (
+    <div className={styles.container}>
+      <FilterComponent
+        selectedWilaya={selectedWilaya}
+        setSelectedWilaya={setSelectedWilaya}
+        priceFilter={priceFilter}
+        setPriceFilter={setPriceFilter}
+        wilayas={wilayas}
+        filters={filters}
+        setFilters={setFilters}
+      />
 
-    {filteredOffers.length === 0 ? (
-      <p className={styles.noOffersText}>{t("no_offers_found")}</p>
-    ) : (
-      <div className={styles.offerList}>
-        {filteredOffers.map((item) => (
-          <OfferCard key={item.id} offer={item} onClick={() => openModal(item)} />
-        ))}
-      </div>
-    )}
+      {filteredOffers.length === 0 ? (
+        <p className={styles.noOffersText}>{t("no_offers_found")}</p>
+      ) : (
+        <div className={styles.offerList}>
+          {filteredOffers.map((item) => (
+            <OfferCard key={item.id} offer={item} onClick={() => openModal(item)} />
+          ))}
+        </div>
+      )}
 
-{modalVisible && selectedOffer && (
+      {modalVisible && selectedOffer && (
         <div className={styles.modalContainer}>
           <div className={styles.modalContent}>
             <Image
@@ -267,24 +267,24 @@ return (
                 {selectedOffer.jour && selectedOffer.nuit
                   ? t("available_day_night")
                   : selectedOffer.jour
-                  ? t("available_day")
-                  : t("available_night")}
+                    ? t("available_day")
+                    : t("available_night")}
               </p>
               <p>
                 <strong>{t("DetailDispo")}:</strong> {selectedOffer.DetailDispo}
               </p>
             </div>
             <button className={styles.callButton} onClick={() => window.open(`tel:${selectedOffer.phone}`)}>
-              {t('call_button')} {/* Traduction du bouton "Appeler" */}
+              {t('call_button')}
             </button>
             <button className={styles.closeButton} onClick={closeModal}>
-              {t('close_button')} {/* Traduction du bouton "Fermer" */}
+              {t('close_button')}
             </button>
           </div>
         </div>
       )}
-  </div>
-);
+    </div>
+  );
 };
 
 export default HomeScreen;
