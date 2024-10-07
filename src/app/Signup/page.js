@@ -109,7 +109,7 @@ const SignupScreen = () => {
 
         <p className={styles.signupText}>
           {t('already_account')}{' '}
-          <a className={styles.signupLink} href="/login">
+          <a className={styles.signupLink} href="/Login">
             {t('login')}
           </a>
         </p>

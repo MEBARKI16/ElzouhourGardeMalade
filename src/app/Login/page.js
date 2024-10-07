@@ -50,7 +50,7 @@ const LoginScreen = () => {
 
         <p className={styles.signupText}>
           {t('no_account')}{' '}
-          <a className={styles.signupLink} href="/signup">
+          <a className={styles.signupLink} href="/Signup">
             {t('signup_link')}
           </a>
         </p>
