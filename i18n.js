@@ -85,6 +85,8 @@ const resources = {
       gender_male: "Homme",
       gender_female: "Femme",
       gender_label: "Sexe",
+      home: "Accueil",
+      inscription: "Inscription",
     }
   },
   ar: {
@@ -172,6 +174,8 @@ const resources = {
       gender_male: "ذكر",
       gender_female: "أنثى",
       gender_label: "الجنس",
+      home: "الرئيسية",
+      inscription: "التسجيل",
     }
   }
 };

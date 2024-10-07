@@ -23,19 +23,38 @@ const Navbar = () => {
 
             <div className={`${styles.menu} ${isMobileMenuOpen ? styles.open : ""}`}>
                 <ul>
+                    {/* Lien vers la page d'accueil */}
+                    <li>
+                        <Link href="/">
+                            {t("home")}
+                        </Link>
+                    </li>
+
+                    {/* Lien vers la page "Qui sommes-nous" */}
                     <li>
                         <Link href="/QuiSommesNous">
                             {t("qui_sommes_nous")}
                         </Link>
                     </li>
+
+                    {/* Lien vers la page "Contact" */}
                     <li>
                         <Link href="/Contact">
                             {t("contact")}
                         </Link>
                     </li>
+
+                    {/* Lien vers la page "Politique de confidentialité" */}
                     <li>
                         <Link href="/PolitiqueConfidentialite">
                             {t("politique_confidentialite")}
+                        </Link>
+                    </li>
+
+                    {/* Lien vers la page d'inscription */}
+                    <li>
+                        <Link href="/inscription">
+                            {t("inscription")}
                         </Link>
                     </li>
                 </ul>

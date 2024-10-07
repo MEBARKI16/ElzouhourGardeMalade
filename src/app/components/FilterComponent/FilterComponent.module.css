@@ -1,4 +1,3 @@
-/* Container général pour les filtres */
 .filtersContainer {
   background-color: #f7f9fc;
   border-radius: 16px;
@@ -16,7 +15,6 @@
   flex-direction: column;
 }
 
-/* Style moderne pour le select */
 .picker {
   height: 45px;
   padding: 5px;
@@ -36,7 +34,6 @@
   box-shadow: 0 0 8px rgba(255, 99, 71, 0.3);
 }
 
-/* Conteneur pour le slider */
 .sliderContainer {
   display: flex;
   flex-direction: column;
@@ -50,7 +47,6 @@
   margin-bottom: 10px;
 }
 
-/* Style du slider */
 .slider {
   width: 100%;
   appearance: none;
@@ -91,7 +87,6 @@
   transform: scale(1.2);
 }
 
-/* Style moderne pour le bouton "Effacer les filtres" */
 .clearButton {
   background-color: #ff6347;
   color: white;
@@ -111,18 +106,17 @@
   background-color: #e0523d;
   box-shadow: 0 4px 10px rgba(255, 99, 71, 0.3);
 }
-/* Container for the checkboxes */
+
 .checkboxContainer {
   display: flex;
-  flex-wrap: wrap; /* Permet de passer les éléments à la ligne si nécessaire */
-  justify-content: space-around; /* Espacement égal entre les éléments */
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin-bottom: 20px;
   gap: 10px 20px;
   max-width: 400px;
   margin: auto;
 }
 
-/* Style for the labels */
 .checkboxContainer label {
   font-size: 14px;
   font-weight: bold;
@@ -133,9 +127,8 @@
   cursor: pointer;
 }
 
-/* Custom checkbox toggle style */
 .checkboxContainer input[type="checkbox"] {
-  appearance: none; /* Remove default checkbox */
+  appearance: none;
   width: 30px;
   height: 15px;
   background-color: #ddd;
@@ -146,7 +139,6 @@
   transition: background-color 0.3s ease;
 }
 
-/* Circle inside the toggle button */
 .checkboxContainer input[type="checkbox"]::before {
   content: "";
   position: absolute;
@@ -159,7 +151,6 @@
   transition: transform 0.3s ease;
 }
 
-/* When checkbox is checked, move the circle and change background */
 .checkboxContainer input[type="checkbox"]:checked {
   background-color: #ff6347;
 }
@@ -168,7 +159,6 @@
   transform: translateX(15px);
 }
 
-/* Style for making the entire label a clickable area */
 .checkboxContainer label {
   cursor: pointer;
 }
