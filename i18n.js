@@ -87,10 +87,12 @@ const resources = {
       gender_label: "Sexe",
       home: "Accueil",
       inscription: "Inscription",
+      already_account: "Vous avez un compte ?",
     }
   },
   ar: {
     translation: {
+      already_account: "هل لديك حساب؟",
       offresgardesmalade: "عروض رعاية المرضى",
       Connexion: "تسجيل الدخول",
       select_wilaya: "اختر ولاية",
