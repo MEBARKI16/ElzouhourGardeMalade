@@ -23,7 +23,7 @@ const Navbar = () => {
         <nav className={styles.navbar}>
             <div className={styles.logo}>
                 <Link href="/">
-                    <img src="/logoGardeMalade.png" alt="Logo" className={styles.logoImage} />
+                    <img src="/logo2.png" alt="Logo" className={styles.logoImage} />
                 </Link>
             </div>
 
