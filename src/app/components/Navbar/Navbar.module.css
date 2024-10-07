@@ -1,5 +1,3 @@
-/* Navbar.module.css */
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -9,6 +7,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un effet moderne */
 }
 
 .logo img {
@@ -26,6 +25,11 @@
     font-size: 16px;
     font-weight: bold;
     color: #333;
+    transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: #ff6347; /* Changer la couleur au hover */
 }
 
 .userIcon a {
@@ -50,28 +54,76 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .menu {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        padding: 15px;
-        flex-direction: column;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+/* Existing styles */
 
+.menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 15px !important;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Remove align-items property here */
+  }
+  
+  /* New styles for Arabic language */
+  .menuArabic {
+    direction: rtl;       /* Set text and layout direction to right-to-left */
+    text-align: right;    /* Align text to the right */
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    margin-bottom: 10px;
+  }
+  
+  .menu ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Rest of your styles */
+  
     .menu.open {
         display: flex;
     }
 
     .menu ul {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
 
     .mobileToggle {
         display: flex;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    .mobileToggle.open .hamburger:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobileToggle.open .hamburger:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobileToggle.open .hamburger:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
     }
 }
