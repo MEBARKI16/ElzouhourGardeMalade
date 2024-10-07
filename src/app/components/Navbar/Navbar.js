@@ -70,7 +70,7 @@ const Navbar = () => {
             </div>
 
             <div className={styles.userIcon}>
-                <Link href="/compte" onClick={handleLinkClick}>
+                <Link href="/Login" onClick={handleLinkClick}>
                     <FaUserCircle size={30} />
                 </Link>
             </div>
