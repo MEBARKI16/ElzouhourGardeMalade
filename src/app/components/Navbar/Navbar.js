@@ -62,7 +62,7 @@ const Navbar = () => {
 
                     {/* Lien vers la page d'inscription */}
                     <li>
-                        <Link href="/inscription" onClick={handleLinkClick}>
+                        <Link href="/Signup" onClick={handleLinkClick}>
                             {t("inscription")}
                         </Link>
                     </li>
