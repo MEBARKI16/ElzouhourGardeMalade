@@ -21,7 +21,7 @@ const HomeScreen = () => {
       firstName: "Amine",
       title: "Garde malade pour personnes âgées",
       DetailDispo: "Disponible toute la semaine jour et nuit sauf le weekend",
-      sexe: "femme",
+      sexe: "homme",
       jour: true,
       nuit: true,
       age: 30,
@@ -29,7 +29,7 @@ const HomeScreen = () => {
       description: "Disponible 24/7 avec une longue expérience. Disponible 24/7 avec une longue expérience.",
       price: 5000,
       sector: "Alger",
-      image: "/test2.jpg",
+      image: "/t3.jpg",
       phone: "+213555123456",
     },
     {
@@ -80,7 +80,7 @@ const HomeScreen = () => {
       description: "Longue expérience avec les personnes âgées, soins personnalisés et assistance à domicile.",
       price: 5500,
       sector: "Sétif",
-      image: "/t1.jpg",
+      image: "/t4.jpg",
       phone: "+213555987654",
     },
     {
@@ -97,7 +97,7 @@ const HomeScreen = () => {
       description: "Accompagnement personnalisé pour la rééducation, assistance jour et nuit.",
       price: 7000,
       sector: "Blida",
-      image: "/t1.jpg",
+      image: "/t6.jpg",
       phone: "+213556321789",
     },
     {
@@ -114,7 +114,7 @@ const HomeScreen = () => {
       description: "Expérience avec les enfants malades et personnes en convalescence.",
       price: 4000,
       sector: "Annaba",
-      image: "/t1.jpg",
+      image: "/t5.jpg",
       phone: "+213558987456",
     },
     {
@@ -131,7 +131,7 @@ const HomeScreen = () => {
       description: "Spécialisé dans les soins de nuit pour personnes âgées en perte d'autonomie.",
       price: 4800,
       sector: "Tlemcen",
-      image: "/t1.jpg",
+      image: "/t8.jpg",
       phone: "+213555987321",
     },
     {
@@ -148,7 +148,7 @@ const HomeScreen = () => {
       description: "Assistance médicale et accompagnement des personnes handicapées, disponible à toute heure.",
       price: 6200,
       sector: "Oran",
-      image: "/t1.jpg",
+      image: "/t7.jpg",
       phone: "+213555654987",
     },
     {
@@ -165,7 +165,7 @@ const HomeScreen = () => {
       description: "Expert en rééducation post-opératoire, soins à domicile et suivi médical.",
       price: 7500,
       sector: "Alger",
-      image: "/t1.jpg",
+      image: "/t9.jpg",
       phone: "+213557654321",
     },
     {
@@ -182,7 +182,7 @@ const HomeScreen = () => {
       description: "Accompagnement des enfants malades, spécialisée en soins pédiatriques.",
       price: 5200,
       sector: "Constantine",
-      image: "/t1.jpg",
+      image: "/t10.jpg",
       phone: "+213555123789",
     },
   ];
