@@ -88,6 +88,10 @@ const resources = {
       home: "Accueil",
       inscription: "Inscription",
       already_account: "Vous avez un compte ?",
+      alert_fill_fields: "Veuillez remplir tous les champs.",
+      alert_success: "Succès",
+      alert_user_registered: "Votre inscription a été réussie.",
+      alert_error: "Erreur"
     }
   },
   ar: {
@@ -178,6 +182,10 @@ const resources = {
       gender_label: "الجنس",
       home: "الرئيسية",
       inscription: "التسجيل",
+      alert_fill_fields: "يرجى ملء جميع الحقول.",
+      alert_success: "نجاح",
+      alert_user_registered: "تم تسجيلك بنجاح.",
+      alert_error: "خطأ"
     }
   }
 };
