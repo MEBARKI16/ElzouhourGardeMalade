@@ -1,7 +1,10 @@
 "use client";
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '../../../firebase'; // Assurez-vous d'importer correctement votre configuration Firebase
 import wilayas from "../../../data/wilaya";
+import Swal from 'sweetalert2';
 import styles from './Signup.module.css'; // Importing CSS module
 
 const SignupScreen = () => {
@@ -21,9 +24,56 @@ const SignupScreen = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+    
+    const { name, surname, wilaya, email, phone, gender, experience } = formData;
+
+    // Vérifier si tous les champs sont remplis
+    if (!name || !surname || !wilaya || !email || !phone || !gender || !experience) {
+      Swal.fire({
+        icon: 'error',
+        title: t('alert_error'),
+        text: t('alert_fill_fields'), // Affiche un message d'erreur si des champs sont vides
+      });
+      return;
+    }
+
+    // Ajouter les données dans Firebase
+    try {
+      await addDoc(collection(db, "NewInscrit"), {
+        name,
+        surname,
+        wilaya,
+        email,
+        phone,
+        gender,
+        experience,
+      });
+
+      Swal.fire({
+        icon: 'success',
+        title: t('alert_success'),
+        text: t('alert_user_registered'), // Affiche un message de succès si l'inscription a réussi
+      });
+
+      // Réinitialiser le formulaire après succès
+      setFormData({
+        name: '',
+        surname: '',
+        wilaya: '',
+        email: '',
+        phone: '',
+        gender: '',
+        experience: '',
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: t('alert_error'),
+        text: error.message, // Affiche un message d'erreur en cas de problème avec Firebase
+      });
+    }
   };
 
   return (
