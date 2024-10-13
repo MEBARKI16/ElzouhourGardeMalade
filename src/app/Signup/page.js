@@ -1,11 +1,11 @@
 "use client";
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { collection, addDoc } from "firebase/firestore";
-import { db } from '../../../firebase'; // Assurez-vous d'importer correctement votre configuration Firebase
+import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import { db } from '../../../firebase'; 
 import wilayas from "../../../data/wilaya";
 import Swal from 'sweetalert2';
-import styles from './Signup.module.css'; // Importing CSS module
+import styles from './Signup.module.css'; 
 
 const SignupScreen = () => {
   const { t } = useTranslation();
@@ -29,18 +29,27 @@ const SignupScreen = () => {
     
     const { name, surname, wilaya, email, phone, gender, experience } = formData;
 
-    // Vérifier si tous les champs sont remplis
     if (!name || !surname || !wilaya || !email || !phone || !gender || !experience) {
       Swal.fire({
         icon: 'error',
         title: t('alert_error'),
-        text: t('alert_fill_fields'), // Affiche un message d'erreur si des champs sont vides
+        text: t('alert_fill_fields'), 
       });
       return;
     }
 
-    // Ajouter les données dans Firebase
     try {
+      // Vérifier si l'email existe déjà
+      const q = query(collection(db, "NewInscrit"), where("email", "==", email));
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        Swal.fire({
+          icon: 'warning',
+          text: t('alert_email_exists'), 
+        });
+        return;
+      }
       await addDoc(collection(db, "NewInscrit"), {
         name,
         surname,
@@ -54,10 +63,9 @@ const SignupScreen = () => {
       Swal.fire({
         icon: 'success',
         title: t('alert_success'),
-        text: t('alert_user_registered'), // Affiche un message de succès si l'inscription a réussi
+        text: t('alert_user_registered'), 
       });
 
-      // Réinitialiser le formulaire après succès
       setFormData({
         name: '',
         surname: '',
@@ -71,7 +79,7 @@ const SignupScreen = () => {
       Swal.fire({
         icon: 'error',
         title: t('alert_error'),
-        text: error.message, // Affiche un message d'erreur en cas de problème avec Firebase
+        text: error.message, 
       });
     }
   };

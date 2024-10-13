@@ -91,11 +91,13 @@ const resources = {
       alert_fill_fields: "Veuillez remplir tous les champs.",
       alert_success: "Succès",
       alert_user_registered: "Votre inscription a été réussie.",
-      alert_error: "Erreur"
+      alert_error: "Erreur",
+      alert_email_exists: "Vous êtes déjà inscrit."
     }
   },
   ar: {
     translation: {
+       alert_email_exists: "أنت مسجل مسبقًا.",
       already_account: "هل لديك حساب؟",
       offresgardesmalade: "عروض رعاية المرضى",
       Connexion: "تسجيل الدخول",
