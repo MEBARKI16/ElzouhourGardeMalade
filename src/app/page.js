@@ -16,6 +16,23 @@ const HomeScreen = () => {
   const { t, i18n } = useTranslation();
   const offers = [
     {
+      id: "14",
+      name: "bouteldja",
+      firstName: "Khadidja",
+      title: "Garde malade et aide soignante",
+      DetailDispo: "Disponible toute la semaine jour et nuit",
+      sexe: "femme",
+      jour: true,
+      nuit: true,
+      age: 30,
+      anneeExperience: 5,
+      description: "Disponible 24/7 avec une longue expérience. Disponible 24/7 avec une longue expérience.",
+      price: 5000,
+      sector: "Blida",
+      image: "/t14.jpg",
+      phone: "+213672699072",
+    },
+    {
       id: "1",
       name: "Mebarki",
       firstName: "Amine",
