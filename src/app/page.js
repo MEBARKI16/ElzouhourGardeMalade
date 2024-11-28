@@ -16,6 +16,24 @@ const HomeScreen = () => {
   const { t, i18n } = useTranslation();
   const offers = [
     {
+      "id": "15",
+      "name": "Zoubir",
+      "firstName": "Hadjer",
+      "title": "Infirmière diplômée et assistante médicale",
+      "DetailDispo": "Disponible du lundi au vendredi en journée, et 2 nuits par semaine.",
+      "sexe": "femme",
+      "jour": true,
+      "nuit": true,
+      "age": 30,
+      "anneeExperience": 3,
+      "description": "Infirmière expérimentée, offrant un service de qualité et d'écoute. Disponible pour des soins à domicile et accompagnement médical.",
+      "price": 8500,
+      "sector": "Alger",
+      "image": "/t15.jpg",
+      "phone": "+213794870929"
+    }
+    ,
+    {
       id: "14",
       name: "bouteldja",
       firstName: "Khadidja",
